@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from 'react'
+import './Style/Style.css'
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import { Routes , Route } from 'react-router-dom';
+import Allcountrus from './components/All countrys/Allcountrus';
+import CountryInfo from './components/Country info/CountryInfo';
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    
+    <Navbar expand="lg" className="navs">
+      <Container>
+        <Navbar.Brand className='barndname' href="#">Where In The World !??</Navbar.Brand>
+      </Container>
+    </Navbar>
+    <Container>
+    <Routes >
+    <Route path='/' element={<Allcountrus />} />
+    <Route path='/country/:countryName' element={<CountryInfo />} />
+    </Routes>
+  </Container>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
